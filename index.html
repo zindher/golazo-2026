@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golazo 2026 — Instrucciones</title>
+<style>
+  :root{
+    --verde:#1B7A3D; --verde-osc:#0E5C2C; --verde-claro:#E8F3EC;
+    --oro:#F5B716; --tinta:#16241B; --gris:#5b6b60; --linea:#dce8e0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--tinta); background:#f4f7f2; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:0 18px 60px}
+
+  /* Encabezado */
+  header{
+    background:linear-gradient(160deg,#22A45A 0%,var(--verde-osc) 100%);
+    color:#fff;text-align:center;padding:38px 18px 30px;
+    border-radius:0 0 28px 28px;box-shadow:0 8px 24px rgba(14,92,44,.25);
+  }
+  .logo{width:118px;height:118px;margin:0 auto 14px;display:block;
+    filter:drop-shadow(0 6px 14px rgba(0,0,0,.25))}
+  header h1{font-size:34px;font-weight:800;letter-spacing:.5px}
+  header p{font-size:15px;opacity:.92;margin-top:4px}
+  .pill{display:inline-block;margin-top:14px;background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.35);padding:6px 14px;border-radius:999px;
+    font-size:13px;font-weight:600}
+  .dl{display:inline-block;margin-top:18px;background:var(--oro);color:var(--verde-osc);
+    font-weight:800;font-size:17px;text-decoration:none;padding:14px 30px;border-radius:999px;
+    box-shadow:0 6px 18px rgba(0,0,0,.25);border:2px solid rgba(255,255,255,.55)}
+  .dl:active{transform:translateY(1px)}
+  .dl small{display:block;font-weight:600;font-size:11px;opacity:.85;margin-top:2px;letter-spacing:.5px}
+
+  /* Tarjetas */
+  .card{
+    background:#fff;border:1px solid var(--linea);border-radius:18px;
+    padding:20px 20px 18px;margin-top:18px;box-shadow:0 2px 10px rgba(20,50,30,.04);
+  }
+  .card h2{font-size:19px;color:var(--verde-osc);display:flex;align-items:center;gap:9px;margin-bottom:12px}
+  .card h2 .em{font-size:22px}
+  ol.steps{list-style:none;counter-reset:s}
+  ol.steps li{counter-increment:s;position:relative;padding:8px 0 8px 42px;border-bottom:1px dashed var(--linea)}
+  ol.steps li:last-child{border-bottom:0}
+  ol.steps li::before{
+    content:counter(s);position:absolute;left:0;top:7px;width:28px;height:28px;
+    background:var(--verde);color:#fff;border-radius:50%;display:grid;place-items:center;
+    font-weight:700;font-size:14px;
+  }
+  .note{background:var(--verde-claro);border-left:4px solid var(--verde);
+    border-radius:10px;padding:11px 14px;margin-top:14px;font-size:14px;color:#27483a}
+  .note b{color:var(--verde-osc)}
+
+  /* Puntos */
+  table{width:100%;border-collapse:collapse;margin-top:4px}
+  th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--linea);font-size:15px}
+  th{font-size:12px;text-transform:uppercase;letter-spacing:.6px;color:var(--gris)}
+  td.pts{font-weight:800;color:var(--verde-osc);white-space:nowrap}
+  .total{margin-top:10px;font-size:14px;color:var(--gris)}
+
+  /* Estados */
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+  .chip{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;
+    font-size:13px;font-weight:600;border:1px solid transparent}
+  .c-open{background:#e4f5ea;color:#1e7a44;border-color:#bfe6cd}
+  .c-live{background:#fdeee2;color:#c5641b;border-color:#f6d3b0}
+  .c-end {background:#fdf4dd;color:#9a7710;border-color:#f0e0a6}
+  .c-final{background:#e7eef2;color:#3f5b6b;border-color:#cdd9e0}
+  .chip small{font-weight:500;opacity:.85}
+
+  footer{text-align:center;color:var(--gris);font-size:13px;margin-top:30px}
+  footer b{color:var(--verde-osc)}
+  .heart{color:var(--oro)}
+</style>
+</head>
+<body>
+<header>
+  <svg class="logo" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" aria-label="Golazo 2026">
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#2BBE6A"/><stop offset="1" stop-color="#0E5C2C"/>
+      </linearGradient>
+      <radialGradient id="sh" cx="0.34" cy="0.28" r="0.85">
+        <stop offset="0" stop-color="#fff" stop-opacity="0.30"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+    <rect x="16" y="16" width="480" height="480" rx="116" fill="url(#bg)"/>
+    <rect x="16" y="16" width="480" height="480" rx="116" fill="url(#sh)"/>
+    <rect x="38" y="38" width="436" height="436" rx="98" fill="none" stroke="#fff" stroke-opacity="0.35" stroke-width="6"/>
+    <g transform="translate(0,-30)">
+      <circle cx="256" cy="256" r="150" fill="#fff"/>
+      <circle cx="256" cy="256" r="150" fill="none" stroke="#0E5C2C" stroke-width="7"/>
+      <g stroke="#16332A" stroke-width="13" stroke-linecap="round">
+        <line x1="256" y1="198" x2="256" y2="113"/><line x1="311" y1="238" x2="395" y2="210"/>
+        <line x1="290" y1="303" x2="342" y2="374"/><line x1="222" y1="303" x2="170" y2="374"/>
+        <line x1="201" y1="238" x2="117" y2="210"/>
+      </g>
+      <polygon points="256,198 311,238 290,303 222,303 201,238" fill="#16332A"/>
+      <g fill="#16332A">
+        <polygon points="256,113 240,128 248,150 264,150 272,128"/>
+        <polygon points="395,210 376,213 372,235 390,246 405,231"/>
+        <polygon points="342,374 327,360 308,371 312,390 334,391"/>
+        <polygon points="170,374 178,391 200,390 204,371 185,360"/>
+        <polygon points="117,210 107,231 122,246 140,235 136,213"/>
+      </g>
+    </g>
+    <g transform="translate(256,442)">
+      <rect x="-112" y="-35" width="224" height="70" rx="35" fill="#F5B716"/>
+      <text x="0" y="17" text-anchor="middle" font-family="Arial,sans-serif" font-weight="800" font-size="52" fill="#0E5C2C" letter-spacing="6">2026</text>
+    </g>
+  </svg>
+  <h1>Golazo 2026</h1>
+  <p>La quiniela mundial de la banda ⚽</p>
+  <span class="pill">Predice · Compite · Presume</span>
+  <br>
+  <a class="dl" href="https://zindher.github.io/golazo-2026/QuinielaMundial2026.apk">⬇️ Descargar la app <small>ANDROID · APK</small></a>
+</header>
+
+<div class="wrap">
+
+  <div class="card">
+    <h2><span class="em">📲</span> Instalar (solo la primera vez)</h2>
+    <ol class="steps">
+      <li>Toca el botón <b>⬇️ Descargar la app</b> de arriba (o usa el APK que te compartí).</li>
+      <li>Ábrelo. Si Android te avisa <i>“por seguridad… fuentes desconocidas”</i>, toca <b>Ajustes → Permitir de esta fuente</b> y regresa.</li>
+      <li>Toca <b>Instalar</b> y luego <b>Abrir</b>.</li>
+    </ol>
+    <div class="note">Si ya tenías una versión vieja y no te deja instalar, <b>desinstala la anterior</b> y vuelve a instalar. No pierdes nada: tus predicciones viven en la nube.</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="em">🔑</span> Entrar</h2>
+    <ol class="steps">
+      <li>Toca <b>Entrar con Google</b>.</li>
+      <li>Elige el correo que registramos para ti. ¡Listo!</li>
+    </ol>
+    <div class="note">Si algún día te pide entrar otra vez, no te preocupes: solo vuelve a tocar <b>Google</b> y sigues con todo en su lugar.</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="em">🎮</span> Cómo jugar</h2>
+    <ol class="steps">
+      <li>En la pestaña <b>Por jugar</b> verás los partidos abiertos.</li>
+      <li>Escribe tu marcador en cada partido: <b>local – visitante</b>.</li>
+      <li>Toca el botón <b>Guardar</b> de abajo (uno solo para todos) y se mandan tus predicciones.</li>
+      <li>Cada partido se <b>cierra a su hora de inicio</b>: después ya no se puede editar.</li>
+      <li>En <b>Históricos</b> ves los que ya empezaron o terminaron, con su resultado y tus puntos.</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2><span class="em">🏆</span> Cómo se ganan puntos</h2>
+    <table>
+      <tr><th>Le atinas a…</th><th>Puntos</th></tr>
+      <tr><td>⚽ El marcador exacto</td><td class="pts">+3</td></tr>
+      <tr><td>✅ Quién gana (o el empate)</td><td class="pts">+1</td></tr>
+      <tr><td>➕ La diferencia de goles</td><td class="pts">+1</td></tr>
+    </table>
+    <p class="total">Son <b>acumulables</b>: máximo <b>5 puntos</b> por partido. Cuentan <b>tiempo regular + tiempo extra</b>; los <b>penales no cuentan</b>.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="em">📋</span> Estados de cada partido</h2>
+    <div class="chips">
+      <span class="chip c-open">🟢 Abierto <small>· puedes predecir</small></span>
+      <span class="chip c-live">🟠 En juego <small>· arrancó, cerrado</small></span>
+      <span class="chip c-end">🟡 Terminado <small>· falta el marcador</small></span>
+      <span class="chip c-final">🔵 Final <small>· con resultado y puntos</small></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="em">📊</span> La Tabla</h2>
+    <p style="font-size:15px">En la pestaña <b>Tabla</b> ves el ranking de toda la banda: quién va arriba 🥇 y quién tiene que apretar el paso. ¡A presumir!</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="em">💡</span> Bueno saber</h2>
+    <ol class="steps">
+      <li>Tus predicciones se guardan en la nube: cambias de teléfono, entras y ahí siguen.</li>
+      <li>Las mejoras de la app llegan <b>solas</b> al abrirla — no tienes que andar reinstalando.</li>
+    </ol>
+  </div>
+
+  <footer>
+    Hecho para la banda <span class="heart">★</span><br>
+    <b>Golazo 2026</b> · La quiniela mundial entre amigos
+  </footer>
+
+</div>
+</body>
+</html>
